@@ -37,19 +37,30 @@ export default function MyBookings() {
         {bookings.map((b) => (
           <li
             key={b._id}
-            className="p-4 rounded-xl bg-gradient-to-br from-teal-100 to-cyan-100 dark:from-slate-800 dark:to-slate-700 shadow-lg hover:shadow-2xl transition-all duration-200 hover:-translate-y-0.5 max-w-md mx-auto text-slate-900 dark:text-slate-100"
+            className="p-4 rounded-2xl bg-white dark:bg-slate-800 ring-1 ring-black/5 dark:ring-white/10 shadow hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 max-w-2xl mx-auto text-slate-900 dark:text-slate-100"
           >
-            <h3 className="text-xl font-bold">{b.event.title}</h3>
-            <p>📅 {new Date(b.event.date).toLocaleDateString()}</p>
-            <p>📍 {b.event.location}</p>
-            <p>🎟️ Seats booked: {b.seatsBooked}</p>
-            <button
-              onClick={() => handleSendTicket(b._id)}
-              disabled={sending[b._id]}
-              className="mt-3 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white rounded-lg transition-colors"
-            >
-              {sending[b._id] ? 'Sending...' : '📧 Send Ticket'}
-            </button>
+            <div className="flex gap-4 items-center">
+              {b.event.image && (
+                <img src={b.event.image} alt={b.event.title} className="w-28 h-20 object-cover rounded-xl" />
+              )}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold line-clamp-1">{b.event.title}</h3>
+                <div className="text-sm text-slate-600 dark:text-slate-300 flex flex-wrap gap-x-4 gap-y-1">
+                  <span>📅 {new Date(b.event.date).toLocaleDateString()}</span>
+                  <span>📍 {b.event.location}</span>
+                  <span>🎟️ {b.seatsBooked} seat(s)</span>
+                </div>
+              </div>
+              <div>
+                <button
+                  onClick={() => handleSendTicket(b._id)}
+                  disabled={sending[b._id]}
+                  className="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 disabled:opacity-60 transition-colors"
+                >
+                  {sending[b._id] ? 'Sending…' : '📧 Send Ticket'}
+                </button>
+              </div>
+            </div>
           </li>
         ))}
       </ul>

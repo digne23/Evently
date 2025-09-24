@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function EventCard({ event }) {
   return (
-    <div className="group rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 bg-white dark:bg-slate-800 overflow-hidden">
+    <div className="group rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 bg-white dark:bg-slate-800 overflow-hidden hover:bg-slate-50 dark:hover:bg-slate-700/70">
       {event.image && (
         <Link to={`/events/${event._id}`} className="block overflow-hidden">
           <img

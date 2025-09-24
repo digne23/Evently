@@ -28,25 +28,21 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-2 group">
           <svg
             className="h-10 w-10 rounded-xl shadow ring-1 ring-white/10 transition-transform duration-200 group-hover:-translate-y-0.5"
-            viewBox="0 0 48 48"
+            viewBox="0 0 56 56"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <linearGradient id="brand-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#34d399" />
-                <stop offset="1" stopColor="#06b6d4" />
+              <linearGradient id="brand-grad" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#22d3ee" />
+                <stop offset="1" stopColor="#10b981" />
               </linearGradient>
             </defs>
-            <rect x="2" y="2" width="44" height="44" rx="10" fill="url(#brand-grad)" />
-            {/* calendar rings */}
-            <rect x="10" y="16" width="28" height="20" rx="4" fill="white" fillOpacity="0.95" />
-            <rect x="14" y="12" width="6" height="6" rx="2" fill="white" />
-            <rect x="28" y="12" width="6" height="6" rx="2" fill="white" />
-            {/* check/flash mark */}
-            <path d="M17 26l5 5 9-9" stroke="#10b981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            <rect x="4" y="4" width="48" height="48" rx="12" fill="url(#brand-grad)" />
+            {/* star/icon */}
+            <path d="M28 15l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.8L28 32.8 21 36.5l1.3-7.8-5.6-5.5 7.8-1.1L28 15z" fill="white" fillOpacity="0.95" />
           </svg>
-          <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-cyan-300 group-hover:from-emerald-200 group-hover:to-cyan-200">
+          <span className="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 to-emerald-200 group-hover:from-white group-hover:to-white">
             Evently
           </span>
         </Link>
