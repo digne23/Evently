@@ -20,6 +20,7 @@ export default function BookingForm({ event }) {
     const res = await bookEvent(event._id, 1);
     if (res._id) {
       push("Booking successful!", 'success');
+      navigate('/my-bookings');
     } else {
       push(res.message || "Booking failed", 'error');
     }
