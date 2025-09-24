@@ -23,7 +23,7 @@ export default function EventCard({ event }) {
         <div className="mt-4">
           <Link
             to={`/events/${event._id}`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl btn"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl btn btn-white-hover"
           >
             <span>View details</span>
             <span className="transition-transform group-hover:translate-x-0.5">→</span>

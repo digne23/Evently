@@ -12,8 +12,10 @@
   box-shadow: 0 4px 14px rgba(0,0,0,.15);
   border-color: var(--btn-ring);
 }
-.btn:hover { background-color: var(--btn-hover); }
+.btn:hover { background-color: var(--btn-hover); box-shadow: 0 6px 18px rgba(0,0,0,.2); }
 .btn-emerald { @apply bg-emerald-600; }
 .btn-emerald:hover { @apply bg-emerald-500; }
 .btn-rose { @apply bg-rose-600; }
 .btn-rose:hover { @apply bg-rose-500; }
+
+.btn-white-hover:hover { background:#ffffff !important; color:#0f172a !important; }

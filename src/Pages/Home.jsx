@@ -38,7 +38,7 @@ export default function Home() {
       <div className="grid md:grid-cols-4 gap-6 items-start">
         <div className="md:col-span-3">
           {(() => {
-            const isRwanda = (loc = '') => /rwanda|kigali|rw\b/i.test(loc);
+            const isRwanda = (loc = '') => /\b(rwanda|kigali|rw)\b/i.test(loc);
             const rwanda = events.filter(e => isRwanda(e.location));
             const global = events.filter(e => !isRwanda(e.location));
             return (
