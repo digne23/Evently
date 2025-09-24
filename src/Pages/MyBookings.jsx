@@ -19,10 +19,9 @@ export default function MyBookings() {
     setSending(prev => ({ ...prev, [bookingId]: true }));
     try {
       const res = await sendBookingTicket(bookingId);
-      if (res?.message) push(res.message, 'success');
-      else push('Ticket sent successfully!', 'success');
+      push(res?.message || 'Ticket sent successfully!', 'success');
     } catch (err) {
-      push('Failed to send ticket', 'error');
+      push(err?.message || 'Failed to send ticket', 'error');
     } finally {
       setSending(prev => ({ ...prev, [bookingId]: false }));
     }

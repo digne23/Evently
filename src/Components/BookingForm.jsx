@@ -1,12 +1,14 @@
 // src/components/BookingForm.jsx
 import React from "react";
 import { bookEvent } from "../services/api";
+import { useToast } from "../Components/Toast";
 import { useNavigate } from "react-router-dom";
 
 export default function BookingForm({ event }) {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
+  const { push } = useToast();
 
   const handleBooking = async () => {
     if (!user || !token) {
@@ -17,9 +19,9 @@ export default function BookingForm({ event }) {
 
     const res = await bookEvent(event._id, 1);
     if (res._id) {
-      alert("Booking successful!");
+      push("Booking successful!", 'success');
     } else {
-      alert(res.message || "Booking failed");
+      push(res.message || "Booking failed", 'error');
     }
   };
 
@@ -34,7 +36,7 @@ export default function BookingForm({ event }) {
       )}
       <button
         onClick={handleBooking}
-        className="inline-flex items-center justify-center px-8 py-3 rounded-xl text-white bg-emerald-600 hover:bg-emerald-500 transition-colors shadow-xl ring-1 ring-white/10"
+        className="inline-flex items-center justify-center px-8 py-3 rounded-xl btn btn-emerald"
       >
         Book Event
       </button>

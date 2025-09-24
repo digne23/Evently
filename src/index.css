@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+:root {
+  --btn-bg: #0f172a; /* slate-900 */
+  --btn-hover: #1e293b; /* slate-800 */
+  --btn-ring: rgba(0,0,0,0.1);
+}
+
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-xl text-white shadow ring-1 transition-colors;
+  background-color: var(--btn-bg);
+  box-shadow: 0 4px 14px rgba(0,0,0,.15);
+  border-color: var(--btn-ring);
+}
+.btn:hover { background-color: var(--btn-hover); }
+.btn-emerald { @apply bg-emerald-600; }
+.btn-emerald:hover { @apply bg-emerald-500; }
+.btn-rose { @apply bg-rose-600; }
+.btn-rose:hover { @apply bg-rose-500; }

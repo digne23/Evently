@@ -107,6 +107,10 @@ export async function sendBookingTicket(bookingId) {
       Authorization: token ? `Bearer ${token}` : undefined,
     },
   });
+  if (!res.ok) {
+    const text = await res.text().catch(()=> 'Request failed');
+    throw new Error(text || 'Request failed');
+  }
   return res.json();
 }
 

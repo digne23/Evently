@@ -33,7 +33,7 @@ export default function Contact() {
         <input name="name" value={form.name} onChange={handleChange} placeholder="Your name" className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
         <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@example.com" className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
         <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your message" className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 h-32" />
-        <button disabled={sending} className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white font-medium">
+        <button disabled={sending} className="w-full py-3 rounded-xl btn btn-emerald disabled:opacity-60">
           {sending ? 'Sending...' : 'Send Message'}
         </button>
       </form>

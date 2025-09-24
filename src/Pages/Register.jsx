@@ -58,7 +58,7 @@ export default function Register() {
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
-        <button className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 transition-colors text-white font-medium">
+        <button className="w-full py-3 rounded-xl btn btn-emerald">
           Register
         </button>
       </form>
