@@ -1,11 +1,13 @@
 // src/pages/MyBookings.jsx
 import React, { useEffect, useState } from "react";
 import { fetchMyBookings, sendBookingTicket } from "../services/api";
+import { useToast } from "../Components/Toast";
 
 export default function MyBookings() {
   const [bookings, setBookings] = useState([]);
   const [sending, setSending] = useState({});
   const user = JSON.parse(localStorage.getItem("user"));
+  const { push } = useToast();
 
   useEffect(() => {
     if (user?._id) {
@@ -17,9 +19,10 @@ export default function MyBookings() {
     setSending(prev => ({ ...prev, [bookingId]: true }));
     try {
       const res = await sendBookingTicket(bookingId);
-      alert(res.message || 'Ticket sent successfully!');
+      if (res?.message) push(res.message, 'success');
+      else push('Ticket sent successfully!', 'success');
     } catch (err) {
-      alert('Failed to send ticket');
+      push('Failed to send ticket', 'error');
     } finally {
       setSending(prev => ({ ...prev, [bookingId]: false }));
     }

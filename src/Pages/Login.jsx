@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { loginUser } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../Components/Toast";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+  const { push } = useToast();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,9 +24,10 @@ export default function Login() {
         email: res.email,
       };
       localStorage.setItem("user", JSON.stringify(userPayload));
+      push('Logged in successfully', 'success');
       navigate("/");
     } else {
-      alert(res.message || "Login failed");
+      push(res.message || "Login failed", 'error');
     }
   };
 

@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { registerUser } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../Components/Toast";
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "", phoneNumber: "" });
   const navigate = useNavigate();
+  const { push } = useToast();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -15,10 +17,10 @@ export default function Register() {
     e.preventDefault();
     const res = await registerUser(form);
     if (res._id) {
-      alert("Registration successful!");
+      push('Registration successful!', 'success');
       navigate("/login");
     } else {
-      alert(res.message || "Registration failed");
+      push(res.message || "Registration failed", 'error');
     }
   };
 

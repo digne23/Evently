@@ -15,13 +15,18 @@ export default function EventCard({ event }) {
         </Link>
       )}
       <div className="p-4">
+        <h3 className="text-lg font-semibold mb-2 text-slate-900 dark:text-slate-100 line-clamp-1">{event.title}</h3>
         <div className="mt-1 text-sm text-gray-700 dark:text-gray-300 space-y-1">
           <p>📅 {new Date(event.date).toLocaleDateString()}</p>
           <p>📍 {event.location}</p>
         </div>
         <div className="mt-4">
-          <Link to={`/events/${event._id}`} className="inline-flex items-center px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white">
-            View details
+          <Link
+            to={`/events/${event._id}`}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 transition-colors shadow ring-1 ring-black/10"
+          >
+            <span>View details</span>
+            <span className="transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
       </div>

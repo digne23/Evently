@@ -1,10 +1,12 @@
 // src/pages/Contact.jsx
 import React, { useState } from 'react';
 import { sendContact } from '../services/api';
+import { useToast } from "../Components/Toast";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sending, setSending] = useState(false);
+  const { push } = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +19,10 @@ export default function Contact() {
     const res = await sendContact(form);
     setSending(false);
     if (res?.message) {
-      alert('Message sent');
+      push('Message sent', 'success');
       setForm({ name: '', email: '', message: '' });
     } else {
-      alert(res?.message || 'Failed to send message');
+      push(res?.message || 'Failed to send message', 'error');
     }
   };
 
